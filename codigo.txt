@@ -1,0 +1,27 @@
+Antes del setup:
+
+bool conmuta = true;
+#define LED 16
+
+Dentro del setup:
+
+pinMode(LED, OUTPUT);
+contador = 0;
+led_estado = false;
+
+Dentro del loop:
+
+if (programador1.isActive()) {
+    led_estado = true;
+    digitalWrite(LED, HIGH);
+
+    if (conmuta) {
+      contador++;
+      conmuta = false;
+    }
+
+  } else {
+    led_estado = false;
+    digitalWrite(LED, LOW);
+    conmuta = true;
+  }
